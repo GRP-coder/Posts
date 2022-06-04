@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import postRouters from'./routes/posts.js';
+import userRouters from'./routes/users.js';
 
 const app = express();
 
@@ -13,9 +14,12 @@ app.use(bodyParser.json({limit: "30mb", extended : true }));
 
 app.use(bodyParser.urlencoded({limit: "30mb", extended : true }));
 
+
+
 app.use(cors());
 
 app.use('/posts', postRouters);
+app.use('/user', userRouters);
 
 const CONNECTION_URL = process.env.CONNECTION_URL;
 
